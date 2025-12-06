@@ -1,0 +1,295 @@
+:root {
+  --primary-color: #4a90e2;
+  --secondary-color: #50c878;
+  --background: #f5f7fa;
+  --text-dark: #2c3e50;
+  --text-light: #7f8c8d;
+  --border-radius: 12px;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+#app {
+  width: 100%;
+  max-width: 600px;
+}
+
+.container {
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 40px;
+  box-shadow: var(--shadow);
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1 {
+  color: var(--text-dark);
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.attribution {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-bottom: 5px;
+}
+
+.attribution a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.attribution a:hover {
+  text-decoration: underline;
+}
+
+.subtitle {
+  color: var(--text-light);
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  color: var(--text-dark);
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+input[type="text"],
+input[type="date"] {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e1e8ed;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+.btn-generate {
+  width: 100%;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  box-shadow: var(--shadow);
+}
+
+.btn-generate:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.btn-generate:active {
+  transform: translateY(0);
+}
+
+.result {
+  margin-top: 30px;
+  padding: 30px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: var(--border-radius);
+  text-align: center;
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.result.hidden {
+  display: none;
+}
+
+.result h2 {
+  color: var(--text-dark);
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.bacteria-name {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 20px 0;
+  color: var(--primary-color);
+  word-break: break-word;
+}
+
+.genus {
+  color: #667eea;
+}
+
+.species {
+  color: #764ba2;
+  margin-left: 10px;
+}
+
+.scientific-name {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+.scientific-name em {
+  color: var(--text-dark);
+  font-style: italic;
+  font-weight: 600;
+}
+
+.btn-print {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow);
+  margin-top: 10px;
+}
+
+.btn-print:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.btn-print:active {
+  transform: translateY(0);
+}
+
+/* Hide print sticker on screen */
+.print-sticker {
+  display: none;
+}
+
+/* Responsive design */
+@media (max-width: 640px) {
+  .container {
+    padding: 30px 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .bacteria-name {
+    font-size: 1.8rem;
+  }
+}
+
+/* Print styles for 3" x 4" sticker */
+@media print {
+  @page {
+    size: 3in 4in;
+    margin: 0;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body {
+    width: 3in;
+    height: 4in;
+    margin: 0;
+    padding: 0;
+    background: white;
+  }
+
+  /* Hide everything except the print sticker */
+  #app {
+    display: none !important;
+  }
+
+  .print-sticker {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 3in;
+    height: 4in;
+    margin: 0;
+    padding: 0.25in;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  .sticker-genus {
+    font-size: 48pt;
+    font-weight: 700;
+    color: #667eea;
+    margin-bottom: 0.15in;
+    word-wrap: break-word;
+    line-height: 1.1;
+  }
+
+  .sticker-species {
+    font-size: 42pt;
+    font-weight: 600;
+    color: #764ba2;
+    word-wrap: break-word;
+    line-height: 1.1;
+  }
+}

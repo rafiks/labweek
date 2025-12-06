@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bacteria Name Generator</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="container">
+        <h1>🦠 Bacteria Name Generator</h1>
+        <p class="attribution">
+          Inspired by the Laboratory Week game from 
+          <a href="https://ascls.org/wp-content/uploads/2024/04/Bacteria-Names-2024.pdf" target="_blank" rel="noopener noreferrer">ASCLS</a>
+        </p>
+        <p class="subtitle">Discover your unique bacterial identity!</p>
+
+        <form id="bacteria-form">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" required placeholder="Enter your first name">
+          </div>
+
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" required placeholder="Enter your last name">
+          </div>
+
+          <div class="form-group">
+            <label for="birthDate">Date of Birth</label>
+            <input type="date" id="birthDate" name="birthDate" required>
+          </div>
+
+          <button type="submit" class="btn-generate">Generate My Bacteria Name</button>
+        </form>
+
+        <div id="result" class="result hidden">
+          <h2>Your Bacterial Identity</h2>
+          <div class="bacteria-name">
+            <span class="genus" id="genusResult"></span>
+            <span class="species" id="speciesResult"></span>
+          </div>
+          <p class="scientific-name">Scientific Name: <em id="fullName"></em></p>
+          <button id="printBtn" class="btn-print">📄 Download PDF Sticker (3" × 4")</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden print template for sticker -->
+    <div id="printSticker" class="print-sticker">
+      <div class="sticker-genus" id="printGenus"></div>
+      <div class="sticker-species" id="printSpecies"></div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
